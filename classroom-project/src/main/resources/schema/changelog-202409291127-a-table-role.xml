@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   logicalFilePath="changelog-202409291127-a-table-role">
+    <changeSet author="chungnt" id="changelog-202409291127-a-table-role">
+        <createTable tableName="roles">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="user_role">
+            <column name="userid" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="roleid" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="userid" constraintName="fk_user_role_userid" onDelete="CASCADE" referencedColumnNames="id" referencedTableName="users"/>
+        <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="roleid" constraintName="fk_user_role_roleid" onDelete="CASCADE" referencedColumnNames="id" referencedTableName="roles"/>
+    </changeSet>
+</databaseChangeLog>
