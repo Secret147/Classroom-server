@@ -23,6 +23,6 @@ public class ClassroomProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("Server start...");
-		TaskCheck.runTask();
+//		TaskCheck.runTask();
 	}
 }

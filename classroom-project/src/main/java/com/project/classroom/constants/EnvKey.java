@@ -27,4 +27,10 @@ public final class EnvKey {
     public static String JWT_SECRET =  properties.getProperty("app.jwt.secret");
 
     public static int JWT_EXPIRATION =  Integer.parseInt(properties.getProperty("app.jwt.expiration"));
+
+    public static String AES_SECRET_KEY =  properties.getProperty("aes.secret.key");
+
+    public static String AES_IVECTOR_KEY =  properties.getProperty("aes.ivector.key");
+
+
 }
