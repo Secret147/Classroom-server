@@ -8,6 +8,9 @@
 
     <changeSet author="chungnt" id="changelog-202409292130-a-data-for-role" labels="data">
         <loadData file="./schema/data/roles_202409292132.csv" tableName="roles"/>
+        <loadData file="./schema/data/users_202410022254.csv" tableName="users"/>
+        <loadData file="./schema/data/user_role_202410022301.csv" tableName="user_role"/>
+
     </changeSet>
 
 </databaseChangeLog>

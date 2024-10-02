@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("admin/user")
+@RequestMapping("api/admin/user")
 public class UserResource {
 
     @Autowired
@@ -19,6 +19,6 @@ public class UserResource {
     public Optional<User> findUser () {
 
         System.out.println("test");
-        return userRepo.findByEmail("d");
+        return userRepo.findByEmail("thanhchung2002xtc@gmail.com");
     }
 }

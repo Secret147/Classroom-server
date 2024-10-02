@@ -1,6 +1,6 @@
 package com.project.classroom.security.jwt;
 
-import com.project.classroom.constants.EnvKey;
+import com.project.classroom.constants.KeyConst;
 import com.project.classroom.security.userdetail.UserDetailImpl;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -27,13 +27,13 @@ public class JwtUtils {
         return Jwts.builder()
                 .setSubject((userPrincipal.getEmail()))
                 .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + EnvKey.JWT_EXPIRATION))
+                .setExpiration(new Date((new Date()).getTime() + KeyConst.JWT_EXPIRATION))
                 .signWith(key(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
     private Key key() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(EnvKey.JWT_SECRET));
+        return Keys.hmacShaKeyFor(KeyConst.JWT_SECRET.getBytes());
     }
 
     public String getUserNameFromJwtToken(String token) {

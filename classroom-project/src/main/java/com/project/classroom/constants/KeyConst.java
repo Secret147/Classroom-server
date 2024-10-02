@@ -5,13 +5,13 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
-public final class EnvKey {
+public final class KeyConst {
 
     private static Properties properties = new Properties();
 
     static {
         try {
-            URL url = EnvKey.class.getClassLoader().getResource("config.properties");
+            URL url = KeyConst.class.getClassLoader().getResource("config.properties");
             if (url != null) {
                 try (InputStream inputStream = url.openStream()) {
                     properties.load(inputStream);

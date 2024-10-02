@@ -48,6 +48,13 @@ dependencies {
 	// liquibase
 	implementation 'org.liquibase:liquibase-core:4.24.0'
 
+	// Validate email
+	implementation 'commons-validator:commons-validator:1.9.0'
+
+	implementation 'org.springframework.boot:spring-boot-starter-logging:3.3.0'
+
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2:3.3.0'
+
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
 
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'

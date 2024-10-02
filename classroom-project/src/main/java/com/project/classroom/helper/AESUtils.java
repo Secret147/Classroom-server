@@ -1,6 +1,6 @@
 package com.project.classroom.helper;
 
-import com.project.classroom.constants.EnvKey;
+import com.project.classroom.constants.KeyConst;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
@@ -91,15 +91,15 @@ public class AESUtils {
     }
 
     public  static String decryptPassword(String cipherTextData) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String newSecretKey = EnvKey.AES_SECRET_KEY.substring(0, 32);
-        String newIvKey = EnvKey.AES_IVECTOR_KEY.substring(0, 16);
+        String newSecretKey = KeyConst.AES_SECRET_KEY.substring(0, 32);
+        String newIvKey = KeyConst.AES_IVECTOR_KEY.substring(0, 16);
         return decrypt(cipherTextData, newSecretKey,
                 newIvKey);
     }
 
     public  static String encryptPassword(String passwordDecode) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String secretKey = EnvKey.AES_SECRET_KEY;
-        String ivKey = EnvKey.AES_IVECTOR_KEY;
+        String secretKey = KeyConst.AES_SECRET_KEY;
+        String ivKey = KeyConst.AES_IVECTOR_KEY;
 
         SecretKeySpec keyspec = new SecretKeySpec(secretKey.substring(0, 32).getBytes(StandardCharsets.UTF_8), "AES");
         IvParameterSpec ivspec = new IvParameterSpec(ivKey.substring(0, 16).getBytes(StandardCharsets.UTF_8));
