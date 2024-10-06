@@ -26,7 +26,11 @@ public final class KeyConst {
 
     public static String JWT_SECRET =  properties.getProperty("app.jwt.secret");
 
-    public static int JWT_EXPIRATION =  Integer.parseInt(properties.getProperty("app.jwt.expiration"));
+    public static long JWT_EXPIRATION =  Long.parseLong(properties.getProperty("app.jwt.expiration"));
+
+    public static String REFRESH_JWT_SECRET =  properties.getProperty("app.refresh.jwt.secret");
+
+    public static long REFRESH_JWT_EXPIRATION =  Long.parseLong(properties.getProperty("app.refresh.jwt.expiration"));
 
     public static String AES_SECRET_KEY =  properties.getProperty("aes.secret.key");
 

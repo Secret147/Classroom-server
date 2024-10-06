@@ -1,5 +1,6 @@
 package com.project.classroom.api.auth;
 
+import com.project.classroom.dto.request.RefreshTokenDto;
 import com.project.classroom.dto.request.SignInReqDto;
 import com.project.classroom.dto.request.SignUpReqDto;
 import com.project.classroom.dto.response.BaseResponse;
@@ -29,5 +30,10 @@ public class AuthController {
     @PostMapping("/sign-in")
     public ResponseEntity<BaseResponse> signInUser(@RequestBody @Valid SignInReqDto signInReqDto){
         return authService.signIn(signInReqDto);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<BaseResponse> refreshToken(@RequestBody RefreshTokenDto refreshTokenDto){
+        return authService.refreshToken(refreshTokenDto.getRefreshToken());
     }
 }

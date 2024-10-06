@@ -34,4 +34,7 @@ public class User extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "roleid"))
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(mappedBy="user")
+    private Set<Token> tokens;
+
 }

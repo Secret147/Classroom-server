@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+                   logicalFilePath="changelog-202410050931-a-table-tokens">
+    <changeSet author="chungnt" id="changelog-202410050931-a-table-tokens">
+        <createTable tableName="tokens">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="token" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="token_expired_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="refresh_token" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="refresh_token_expired_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+<!--            <column name="revoked" type="TIMESTAMP" defaultValue="FALSE">-->
+<!--                <constraints nullable="true"/>-->
+<!--            </column>-->
+
+            <column name="userid" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_token_user" referencedTableName="users"
+                             referencedColumnNames="id"/>
+            </column>
+
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
